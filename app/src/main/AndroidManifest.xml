@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <uses-permission android:name="com.android.providers.tv.permission.READ_EPG_DATA" />
+    <uses-permission android:name="com.android.providers.tv.permission.WRITE_EPG_DATA" />
+    <uses-permission android:name="com.android.providers.tv.permission.ACCESS_WATCHED_PROGRAMS" />
+    <uses-permission android:name="android.permission.BIND_TV_INPUT"
+        tools:ignore="ProtectedPermissions" />
+<!--  system 권한  -->
+    <uses-permission android:name="com.android.providers.tv.permission.ACCESS_ALL_EPG_DATA" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
+    <uses-feature
+        android:name="android.software.live_tv"
+        android:required="true" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.TvInputEPG">
+        <activity
+            android:name=".MainActivity"
+            android:banner="@drawable/banner"
+            android:exported="true"
+            android:theme="@style/Theme.TvInputEPG"
+            android:icon="@drawable/banner"
+            android:logo="@drawable/banner">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
