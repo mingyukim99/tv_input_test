@@ -11,6 +11,7 @@
 <!--  system 권한  -->
     <uses-permission android:name="com.android.providers.tv.permission.ACCESS_ALL_EPG_DATA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="com.android.tv.permission.RECEIVE_INPUT_EVENT" />
 
     <uses-feature
         android:name="android.hardware.touchscreen"
@@ -26,8 +27,11 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:sharedUserMaxSdkVersion="32"
         android:supportsRtl="true"
-        android:theme="@style/Theme.TvInputEPG">
+        android:sharedUserId="android.media.tv"
+        android:theme="@style/Theme.TvInputEPG"
+        tools:targetApi="33">
         <activity
             android:name=".MainActivity"
             android:banner="@drawable/banner"

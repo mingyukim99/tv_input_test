@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         EpgCapture.apply {
+            fetchChannelByUri(contentResolver, 199)
             Log.d(TAG, "channels fetch: ${TvContractCompat.Channels.CONTENT_URI}")
             listTvInputs(this@MainActivity)
 //            addTestChannel(contentResolver, "$packageName/.TestTvInputService") // 그냥 추가는 됨

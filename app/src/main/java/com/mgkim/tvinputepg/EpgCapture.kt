@@ -12,6 +12,32 @@ private const val TAG = "EpgCapture"
 
 object EpgCapture {
 
+
+    /**
+     * id를 직접 qurey하기 보다 uri로 채널데이터 가져오기
+     */
+    fun fetchChannelByUri(cr: ContentResolver, channelId: Long) {
+        val uri = TvContract.buildChannelUri(channelId)
+        Log.d(TAG, "fetchChannelByUri: uri is ${uri}")
+
+        try {
+            cr.query(uri, null, null, null, null).use { cursor ->
+                if ((cursor != null) && (cursor.count > 0)) {
+                    if (cursor.moveToFirst()) {
+                        Log.d(TAG, "fetchChannelByUri: $cursor")
+                    }
+                }else{
+                    Log.d(TAG, "fetchChannelByUri: no data")
+                }
+            }
+        } catch (e: Exception) {
+            Log.e(
+                TAG,
+                "Unable to get programs for " + uri + "code:" + e.toString()
+            )
+        }
+    }
+
     /**
      *  프로그램 목록 가져오기
      */
